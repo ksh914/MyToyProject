@@ -6,10 +6,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-x=librosa.load('/Users/kim/Desktop/github/sample_sound/p232_001.wav',16000)[0]
-y=librosa.stft(x,n_fft=128,hop_length=64,win_length=128)
+x=librosa.load('/Users/kim/Desktop/github/sample_sound/p232_001.wav',sr=16000)[0] # librosa.load(location, sr=22050)
+y=librosa.stft(x,n_fft=128,hop_length=64,win_length=128) #stft : Short-Time Fourier Transform : librosa.stft()
 
-magnitude=np.abs(y)
+magnitude=np.abs(y) #y의 절댓값 계산
 log_spectrogram = librosa.amplitude_to_db(magnitude)
 
 plt.figure(figsize=(10,4))
